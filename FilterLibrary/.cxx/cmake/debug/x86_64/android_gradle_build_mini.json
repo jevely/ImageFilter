@@ -1,0 +1,19 @@
+{
+  "buildFiles": [
+    "/Users/testbird/Documents/android/sdk/ndk/20.0.5594570/build/cmake/android.toolchain.cmake",
+    "/Users/testbird/Documents/android/sdk/ndk/20.0.5594570/build/cmake/platforms.cmake",
+    "/Users/testbird/Documents/gitproject/ImageFilter/FilterLibrary/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/testbird/Documents/android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/testbird/Documents/gitproject/ImageFilter/FilterLibrary/.cxx/cmake/debug/x86_64\" clean"
+  ],
+  "buildTargetsCommand": "/Users/testbird/Documents/android/sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/Users/testbird/Documents/gitproject/ImageFilter/FilterLibrary/.cxx/cmake/debug/x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "yuv-decoder-Debug-x86_64": {
+      "artifactName": "yuv-decoder",
+      "buildCommand": "/Users/testbird/Documents/android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/testbird/Documents/gitproject/ImageFilter/FilterLibrary/.cxx/cmake/debug/x86_64\" yuv-decoder",
+      "abi": "x86_64",
+      "output": "/Users/testbird/Documents/gitproject/ImageFilter/FilterLibrary/build/intermediates/cmake/debug/obj/x86_64/libyuv-decoder.so"
+    }
+  }
+}
