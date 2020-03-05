@@ -551,7 +551,7 @@ public class GPUImageView extends FrameLayout {
         }
 
         private void saveImage(final String folderName, final String fileName, final Bitmap image) {
-            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            File path = Environment.getExternalStorageDirectory().getAbsoluteFile();
             File file = new File(path, folderName + "/" + fileName);
             try {
                 file.getParentFile().mkdirs();

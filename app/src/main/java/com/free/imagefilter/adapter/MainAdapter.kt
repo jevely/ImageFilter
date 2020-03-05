@@ -1,16 +1,22 @@
 package com.free.imagefilter.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.free.imagefilter.R
+import com.free.imagefilter.activity.DealActivity
+import com.free.imagefilter.getScreen
+import com.free.imagefilter.tool.PhotoTool
+import java.io.File
 
-class MainAdapter(val context: Context) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
-
-    private var requestTime = 0L
+class MainAdapter(val context: Context, val showList: MutableList<String>) :
+    RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainAdapter.MainViewHolder {
         val view =
@@ -19,54 +25,32 @@ class MainAdapter(val context: Context) : RecyclerView.Adapter<MainAdapter.MainV
     }
 
     override fun getItemCount(): Int {
-        return 12
+        return PhotoTool.getInstance().getPhotos().size
     }
 
-    override fun onBindViewHolder(holder: MainAdapter.MainViewHolder, position: Int) {
-//        holder.setData(DataTool.getInstance().getData(position).imageId)
+    override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
+        holder.setData(showList[position])
     }
 
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val main_adapter_iv = itemView.findViewById<ImageView>(R.id.main_adapter_iv)
 
-        fun setData(imageUrl: Int) {
+        fun setData(imagePath: String) {
 
-//            main_adapter_iv.setOnClickListener {
-//                val intent = Intent(context, ContentActivity::class.java)
-//                intent.putExtra("url", imageUrl)
-//                context.startActivity(intent)
-//            }
+            main_adapter_iv.setOnClickListener {
+                val intent = Intent(context, DealActivity::class.java)
+                intent.putExtra("path", imagePath)
+                context.startActivity(intent)
+            }
 
-//            Glide
-//                .with(context)
-//                .load(imageUrl)
-//                .placeholder(R.mipmap.defult_img)
-//                .override((getScreen().x / 2.0F).toInt(), (getScreen().y / 2.0F).toInt())
-//                .centerCrop()
-//                .addListener(object : RequestListener<Drawable> {
-//                    override fun onLoadFailed(
-//                        e: GlideException?,
-//                        model: Any?,
-//                        target: Target<Drawable>?,
-//                        isFirstResource: Boolean
-//                    ): Boolean {
-//                        //Logger.e("$imageUrl : ${e?.toString()!!}")
-//                        return false
-//                    }
-//
-//                    override fun onResourceReady(
-//                        resource: Drawable?,
-//                        model: Any?,
-//                        target: Target<Drawable>?,
-//                        dataSource: DataSource?,
-//                        isFirstResource: Boolean
-//                    ): Boolean {
-//                        return false
-//                    }
-//
-//                })
-//                .into(main_adapter_iv)
+            Glide
+                .with(context)
+                .load(File(imagePath))
+                .placeholder(R.mipmap.ic_launcher)
+                .override((getScreen().x / 4.0F).toInt(), (getScreen().x / 4.0F).toInt())
+                .centerCrop()
+                .into(main_adapter_iv)
         }
     }
 

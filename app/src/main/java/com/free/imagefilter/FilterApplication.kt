@@ -13,7 +13,7 @@ class FilterApplication : MultiDexApplication() {
         MultiDex.install(this)
     }
 
-    companion object{
+    companion object {
         private var context: Context? = null
 
         fun getContext(): Context? {
@@ -31,7 +31,6 @@ class FilterApplication : MultiDexApplication() {
                 return
             }
         }
-
     }
 
     /**

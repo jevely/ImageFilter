@@ -17,6 +17,10 @@ class SplashActivity : BaseActivity() {
     private lateinit var imageView: ImageView
     private lateinit var textView: TextView
 
+    private val WRITE_PERMISSION = "android.permission.WRITE_EXTERNAL_STORAGE"
+    private val READ_PERMISSION = "android.permission.READ_EXTERNAL_STORAGE"
+    private val REQUEST_CODE = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -37,10 +41,14 @@ class SplashActivity : BaseActivity() {
         imageView = findViewById(R.id.imageView)
         textView = findViewById(R.id.textView)
 
-        animatorStart()
+        checkPermission()
     }
 
-    fun animatorStart() {
+    private fun checkPermission() {
+        requestPermission(this, arrayOf(WRITE_PERMISSION, READ_PERMISSION), REQUEST_CODE)
+    }
+
+    private fun animatorStart() {
         val set = AnimatorSet()
         val set2 = AnimatorSet()
         set.playTogether(
@@ -105,5 +113,15 @@ class SplashActivity : BaseActivity() {
             return true
         }
         return super.onKeyDown(keyCode, event)
+    }
+
+    override fun requestSuccess(requestCode: Int, permission: List<String>) {
+        super.requestSuccess(requestCode, permission)
+        animatorStart()
+    }
+
+    override fun requestError(requestCode: Int, permission: List<String>) {
+        super.requestError(requestCode, permission)
+        animatorStart()
     }
 }
