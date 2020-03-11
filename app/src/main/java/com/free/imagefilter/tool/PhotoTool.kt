@@ -48,7 +48,6 @@ class PhotoTool private constructor() {
 
         override fun run() {
             try {
-                Log.d("LJW", "11")
                 if (Environment.getExternalStorageState() != Environment.MEDIA_MOUNTED) {
                     return
                 }
@@ -82,7 +81,6 @@ class PhotoTool private constructor() {
                     }
                     photoList.reverse()
                     resultList.addAll(photoList)
-                    Log.d("LJW", "22")
                     photoCallBack.callBack(resultList)
                     cursor.close()
                 }

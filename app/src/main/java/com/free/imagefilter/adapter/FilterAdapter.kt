@@ -32,7 +32,7 @@ class FilterAdapter(
     }
 
     override fun getItemCount(): Int {
-        return 16
+        return 15
     }
 
     override fun onBindViewHolder(holder: FilterAdapter.FilterViewHolder, position: Int) {

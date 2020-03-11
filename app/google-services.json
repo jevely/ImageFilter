@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "839477298291",
+    "firebase_url": "https://u-hd-wallpapers.firebaseio.com",
+    "project_id": "u-hd-wallpapers",
+    "storage_bucket": "u-hd-wallpapers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839477298291:android:e8f9ed10cffca2d483d606",
+        "android_client_info": {
+          "package_name": "com.freephoto.uhdwallpapers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839477298291-p9de98pgmh4hr6mva3nrrqlv24qld2p8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIsA1FW3rsYsPePIqxXyZMUXnzBjCckyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839477298291-p9de98pgmh4hr6mva3nrrqlv24qld2p8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
